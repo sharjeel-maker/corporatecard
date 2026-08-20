@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Corporate Cards UAE | Independent Card & Spend Platforms Directory</title>
+  <meta name="description" content="Compare the best corporate cards and expense management platforms in the UAE. Discover fees, rewards, virtual card features, and integration capabilities for Qashio, Alaan, Pemo, Pluto, Ramp, and Brex.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Premium Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="brand-logo-container">
+        <div class="brand-logo-icon">K</div>
+        <a href="#" class="brand-logo-text">Kredit<span>Card</span></a>
+      </div>
+
+      <ul class="nav-links" id="main-nav-menu">
+        <li><a href="#featured-cards-section" class="nav-link">Corporate Cards</a></li>
+        <li><a href="#directories-section" class="nav-link">Card Categories</a></li>
+        <li><a href="#industries-section" class="nav-link">Industries</a></li>
+        <li><a href="#picker-section" class="nav-link">Card Finder Tool</a></li>
+        <li><a href="#calculators-section" class="nav-link">Rewards Calc</a></li>
+        <li><a href="#guides-section" class="nav-link">Guides & Articles</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#picker-section" class="btn btn-primary btn-sm">Find My Card</a>
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Homepage Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-col-left">
+          <span class="card-badge" style="margin-bottom: 15px; display: inline-block;">UAE Independent Fintech Comparison</span>
+          <h1 class="hero-title">Compare the Best Corporate Cards for Your Business</h1>
+          <p class="hero-subtitle">Compare corporate cards, spend controls, cashback, and accounting integrations from leading providers in the UAE. Find the right option for your business inside 60 seconds.</p>
+          
+          <!-- Search Widget -->
+          <div class="hero-search-wrapper">
+            <span class="search-icon-field">🔍</span>
+            <input type="text" id="search-input" class="hero-search-input" placeholder="Search corporate cards, cashback, providers, features, QuickBooks...">
+          </div>
+
+          <div class="search-quick-tags">
+            <span class="text-muted">Popular searches:</span>
+            <span class="quick-search-tag" onclick="triggerQuickSearch('Alaan')">Alaan</span>
+            <span class="quick-search-tag" onclick="triggerQuickSearch('Qashio')">Qashio</span>
+            <span class="quick-search-tag" onclick="triggerQuickSearch('Cashback')">Cashback</span>
+            <span class="quick-search-tag" onclick="triggerQuickSearch('Virtual')">Virtual cards</span>
+            <span class="quick-search-tag" onclick="triggerQuickSearch('QuickBooks')">QuickBooks</span>
+          </div>
+        </div>
+
+        <div class="hero-col-right hero-graphic-wrap">
+          <div class="hero-glow-back"></div>
+          <div class="hero-stacked-cards">
+            <div class="hero-card-1"></div>
+            <div class="hero-card-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Discovery & Filters Section -->
+  <section class="section" id="featured-cards-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare Leading Corporate Cards</h2>
+        <p>Explore corporate cards from leading UAE and global providers and see how they stack up on pricing, features, rewards, and compliance controls.</p>
+      </div>
+
+      <!-- Quick Filter & Sort Discovery Bar -->
+      <div class="discovery-bar">
+        <div class="discovery-pills-container">
+          <button class="discovery-pill active" data-category="all">Best Overall</button>
+          <button class="discovery-pill" data-category="cashback">Highest Cashback</button>
+          <button class="discovery-pill" data-category="travel">Miles & Travel</button>
+          <button class="discovery-pill" data-category="virtual">Virtual Cards</button>
+          <button class="discovery-pill" data-category="expense">Expense Automation</button>
+          <button class="discovery-pill" data-category="startups">For Startups</button>
+          <button class="discovery-pill" data-category="smes">For SMEs</button>
+          <button class="discovery-pill" data-category="free">Free Platforms</button>
+        </div>
+
+        <div class="sort-container">
+          <span class="sort-label">Sort by:</span>
+          <select id="sort-select" class="styled-select">
+            <option value="recommended">Recommended</option>
+            <option value="rating">Highest Rated</option>
+            <option value="cashback">Highest Cashback %</option>
+            <option value="cost-low">Lowest Platform Fee</option>
+            <option value="rewards">Special Rewards First</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Cards Grid (Hydrated by JS) -->
+      <div class="cards-grid" id="featured-cards-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Questionnaire Card Picker Section -->
+  <section class="section section-grey" id="picker-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>"Which Corporate Card is Right for Me?"</h2>
+        <p>Tell us what your business needs. Our smart discovery engine maps your entity size, industry, and main expenses to the absolute best card setup.</p>
+      </div>
+
+      <div class="picker-container">
+        <div class="picker-widget-header">
+          <h3>Dynamic UAE Card Finder</h3>
+          <p id="picker-step-number">Question 1 of 5</p>
+          <div class="picker-progress-bar">
+            <div class="picker-progress-fill" id="picker-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="picker-body">
+          <!-- Step view -->
+          <div id="picker-question-view">
+            <div class="picker-step-header">
+              <h4 id="picker-step-title">What type of business do you run?</h4>
+              <p id="picker-step-subtitle">Determines your entity size, trade license types, and spend constraints.</p>
+            </div>
+            <div class="picker-options-stack" id="picker-options-container">
+              <!-- Rendered step options dynamically -->
+            </div>
+          </div>
+
+          <!-- Results view -->
+          <div class="picker-results-panel" id="picker-results-view">
+            <div class="picker-step-header" style="text-align: center;">
+              <h4>Your Recommended Corporate Cards</h4>
+              <p>Based on your requirements, we recommend comparing these top 3 matches:</p>
+            </div>
+            <div class="picker-recommended-cards-list" id="picker-recommended-cards-list">
+              <!-- Rendered dynamic recommendations -->
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+              <button class="btn btn-secondary" id="picker-retry-btn">Start Over & Reset Questionnaire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Visual Grid Section -->
+  <section class="section" id="directories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Find Corporate Cards by Type</h2>
+        <p>Target your business cards search based on specific financial capabilities, payment types, and employee limit controls.</p>
+      </div>
+
+      <div class="directories-grid">
+        <div class="directory-card" onclick="triggerQuickSearch('Virtual')">
+          <div class="directory-icon">💳</div>
+          <h4>Virtual Corporate Cards</h4>
+          <p>Instantly issue disposable or subscription-locked virtual cards for online advertising, SaaS, and digital vendor bills.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Cashback')">
+          <div class="directory-icon">💰</div>
+          <h4>Rewards & Cashback Cards</h4>
+          <p>Earn standard and flat cashbacks on every AED spent. Maximize cash return directly back to your business ledger.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Travel')">
+          <div class="directory-icon">✈️</div>
+          <h4>Miles & Travel Corporate Cards</h4>
+          <p>Tailor your spending around global flights, premium hotels, multi-currency limits, and direct airline mile accumulation.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Expense')">
+          <div class="directory-icon">🤖</div>
+          <h4>Expense Management Cards</h4>
+          <p>Integrate physical business cards with real-time expense reporting, WhatsApp receipt capture, and direct ERP syncing.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Startups')">
+          <div class="directory-icon">🚀</div>
+          <h4>Cards for Startups</h4>
+          <p>Secure flexible high limits, quick approvals, and zero personal guarantees, optimized specifically for fast-growing GCC startups.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('SMEs')">
+          <div class="directory-icon">🏢</div>
+          <h4>Cards for SMEs</h4>
+          <p>Optimize operational petty cash, local VAT invoices compliance, and physical card allocations for local sales teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Grid Section -->
+  <section class="section section-grey" id="industries-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Corporate Cards Built for Your Industry</h2>
+        <p>Find spending programs and platforms optimized around the unique operational flows, cashflows, and receipt logs of your vertical.</p>
+      </div>
+
+      <div class="directories-grid">
+        <div class="directory-card" onclick="triggerQuickSearch('Marketing')">
+          <div class="directory-icon">📢</div>
+          <h4>Marketing Agencies</h4>
+          <p>Handle heavy ad spend limits on Meta, Google, TikTok, and software tool subscriptions with customized daily caps.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Ecommerce')">
+          <div class="directory-icon">🛒</div>
+          <h4>E-commerce Platforms</h4>
+          <p>Manage high international vendor payments, multi-currency FX markups, global inventory, and advertising payouts easily.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Technology')">
+          <div class="directory-icon">💻</div>
+          <h4>SaaS & Tech Companies</h4>
+          <p>Streamline AWS/Azure cloud spend, global remote team physical cards, and deep integrations with accounting systems.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Construction')">
+          <div class="directory-icon">🏗️</div>
+          <h4>Construction & Real Estate</h4>
+          <p>Assign highly controlled field team cards, manage offline material procurement receipts, and set daily transaction limits.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Professional')">
+          <div class="directory-icon">⚖️</div>
+          <h4>Law & Consulting Firms</h4>
+          <p>Track client-related dining bills, travel reimbursements, client-billable hours tracking, and automated receipt syncing.</p>
+        </div>
+        <div class="directory-card" onclick="triggerQuickSearch('Travel')">
+          <div class="directory-icon">🏨</div>
+          <h4>Logistics & Hospitality</h4>
+          <p>Manage fuel card allocations, fleet maintenance expenses, hotel spend limits, and driver petty cash controls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-configured Head-to-Head Section: Alaan vs Qashio -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compare Head-to-Head</h2>
+        <p>Two local champions in the UAE corporate spend arena analyzed. See which tool fits your operational priorities.</p>
+      </div>
+
+      <div class="comparison-showdown-box">
+        <div class="showdown-grid">
+          <div class="showdown-side">
+            <div class="showdown-logo" style="background-color: #7c3aed;">Q</div>
+            <h3>Qashio</h3>
+            <p class="text-small" style="margin-bottom: 15px;">Rating: ★ 4.8 | Starting: AED 99/mo</p>
+            <ul class="showdown-features-list">
+              <li>✓ Advanced Multi-tier Approval Paths</li>
+              <li>✓ Powerful local Saudi and UAE accounts</li>
+              <li>✓ Tailored Points Rewards System</li>
+              <li>✓ Enterprise Oracle & NetSuite Sync</li>
+            </ul>
+          </div>
+
+          <div class="showdown-vs-badge">VS</div>
+
+          <div class="showdown-side">
+            <div class="showdown-logo" style="background-color: #10b981;">A</div>
+            <h3>Alaan</h3>
+            <p class="text-small" style="margin-bottom: 15px;">Rating: ★ 4.9 | Starting: Free (AED 0)</p>
+            <ul class="showdown-features-list">
+              <li>✓ Guaranteed up to 2.0% Cash Cashback</li>
+              <li>✓ Flat Free Platform - Zero user fees</li>
+              <li>✓ Unlimited Virtual Cards</li>
+              <li>✓ Superb localized VAT invoicing sync</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="quick-compare-trigger-row">
+          <button class="btn btn-primary" onclick="launchDirectCompare('qashio', 'alaan')">Launch Detailed Alaan vs Qashio Comparison Grid</button>
+          <div style="margin-top: 15px;">
+            <span class="text-muted text-small">Or select another comparison: </span>
+            <select id="quick-head-to-head-select" class="styled-select" style="margin-left: 10px;">
+              <option value="">-- Choose Head-to-Head Compare --</option>
+              <option value="qashio-vs-pemo">Qashio vs Pemo</option>
+              <option value="qashio-vs-pluto">Qashio vs Pluto</option>
+              <option value="alaan-vs-pemo">Alaan vs Pemo</option>
+              <option value="alaan-vs-pluto">Alaan vs Pluto</option>
+              <option value="ramp-vs-brex">Ramp vs Brex</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Calculations Suite: Rewards & Cost Calculators -->
+  <section class="section section-grey" id="calculators-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Calculate Your Potential Benefits & Costs</h2>
+        <p>Get data-driven answers around cashback earnings, airline rewards, and annual platform costs across providers in real-time.</p>
+      </div>
+
+      <div class="calculator-grid">
+        <!-- 1. Rewards Calculator -->
+        <div class="calc-widget-box">
+          <h3 style="margin-bottom: 8px;">1. Corporate Rewards Calculator</h3>
+          <p class="text-muted text-small" style="margin-bottom: 25px;">Enter your estimated monthly business spend to see what rewards you could earn annually.</p>
+
+          <div class="calc-sliders-container">
+            <div class="slider-group">
+              <div class="slider-labels">
+                <span class="slider-label">Total Monthly Spend (AED)</span>
+                <span class="slider-num-box" id="calc-range-val">AED 150,000</span>
+              </div>
+              <input type="range" id="rewards-spend-range" class="slider-input-element" min="10000" max="1000000" step="10000" value="150000">
+              <input type="number" id="rewards-spend-num" class="styled-select" style="margin-top: 10px;" value="150000">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-labels">
+                <span class="slider-label">Online Marketing / Ad Spend (AED)</span>
+              </div>
+              <input type="range" class="slider-input-element calc-cat-slider" min="0" max="500000" step="5000" value="60000">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-labels">
+                <span class="slider-label">SaaS & Software Expenses (AED)</span>
+              </div>
+              <input type="range" class="slider-input-element calc-cat-slider" min="0" max="300000" step="5000" value="40000">
+            </div>
+          </div>
+
+          <div class="calc-results-payout">
+            <div>
+              <h4 class="payout-title">Estimated Annual Payouts</h4>
+              <div class="payout-metrics-stack">
+                <div class="payout-metric-row">
+                  <span class="payout-metric-label">Estimated Cashback</span>
+                  <span class="payout-metric-val text-emerald" id="calc-est-cashback">AED 27,000</span>
+                </div>
+                <div class="payout-metric-row">
+                  <span class="payout-metric-label">Estimated Loyalty Points</span>
+                  <span class="payout-metric-val" id="calc-est-points">225,000 pts</span>
+                </div>
+                <div class="payout-metric-row">
+                  <span class="payout-metric-label">Estimated Airline Miles</span>
+                  <span class="payout-metric-val" id="calc-est-miles">45,000 miles</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="payout-recommendation-box">
+              <strong>Best Provider Recommendation:</strong>
+              <p id="calc-best-rewards-provider" style="color: #94a3b8; font-size: 0.85rem; margin-top: 4px;">Alaan (Guaranteed Flat cashback structures) / Brex (For international travel spikes)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Cost Calculator -->
+        <div class="calc-widget-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="margin-bottom: 8px;">2. Platform Annual Cost Calculator</h3>
+            <p class="text-muted text-small" style="margin-bottom: 25px;">Avoid hidden platform fees. Put in your operational card requirements to see estimated annual spending.</p>
+
+            <div class="calc-sliders-container">
+              <div class="slider-group">
+                <div class="slider-labels">
+                  <span class="slider-label">Active Staff Requiring Physical Cards</span>
+                </div>
+                <input type="number" id="cost-cards-needed" class="styled-select" value="10" min="1" max="1000">
+              </div>
+
+              <div class="slider-group">
+                <label class="checkbox-container" style="padding-left: 32px;">
+                  <input type="checkbox" id="cost-intl-payments" checked>
+                  <span class="checkmark" style="height: 22px; width: 22px;"></span>
+                  Our company makes heavy international supplier payments
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-results-payout" style="background-color: var(--primary-light); color: var(--text-primary);">
+            <div>
+              <h4 class="payout-title" style="color: var(--text-primary); border-color: var(--border-color);">Cost Breakdown Comparison</h4>
+              <div class="payout-metrics-stack">
+                <div class="payout-metric-row">
+                  <span class="payout-metric-label" style="color: var(--text-secondary);">Estimated Basic Platform Fees</span>
+                  <span class="payout-metric-val" style="color: var(--text-primary);" id="cost-platform-output">AED 1,800/year</span>
+                </div>
+                <div class="payout-metric-row">
+                  <span class="payout-metric-label" style="color: var(--text-secondary);">Estimated FX markups on card swap</span>
+                  <span class="payout-metric-val" style="color: var(--text-primary);" id="cost-fx-output">AED 450/year</span>
+                </div>
+                <div class="payout-metric-row" style="border-top: 1px dashed var(--border-color); padding-top: 15px; margin-top: 10px;">
+                  <span class="payout-metric-label" style="font-weight: 700; color: var(--text-primary);">Estimated Annual Platform Cost</span>
+                  <span class="payout-metric-val text-indigo" id="cost-total-output">AED 2,250/year</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="payout-recommendation-box" style="background-color: rgba(37, 99, 235, 0.05); border: 1px solid rgba(37, 99, 235, 0.15);">
+              <strong style="color: var(--text-primary);">Money Saving Tip:</strong>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Alaan, Ramp and basic tiers of Brex offer flat FREE platform setup, which can instantly wipe out estimated card fees!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial, Guides, and Insightful content Section -->
+  <section class="section" id="guides-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Corporate Card Guides & Insights</h2>
+        <p>Demystifying spend metrics, tax audits, VAT receipts, and cards setups for UAE business operators.</p>
+      </div>
+
+      <div class="directories-grid" style="grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));">
+        <!-- Article 1 -->
+        <article class="card-tile">
+          <div style="padding: 24px;">
+            <span class="card-badge" style="margin-bottom: 12px; display: inline-block;">Compare Guide</span>
+            <h4 style="margin-bottom: 10px; font-size: 1.25rem;">Corporate Card vs Business Credit Card</h4>
+            <p class="text-small" style="margin-bottom: 20px;">Understand key differences around personal liability guarantees, daily spending caps, and automated accounting workflows...</p>
+            <a href="#article" class="font-highlight text-indigo">Read Full Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="card-tile">
+          <div style="padding: 24px;">
+            <span class="card-badge" style="margin-bottom: 12px; display: inline-block;">Tax & Audit</span>
+            <h4 style="margin-bottom: 10px; font-size: 1.25rem;">How to Automate UAE Corporate Tax & VAT Receipts</h4>
+            <p class="text-small" style="margin-bottom: 20px;">Unpack the FTA compliance standards regarding expense receipts logging, automated WhatsApp capture, and audit paths...</p>
+            <a href="#article" class="font-highlight text-indigo">Read Full Article →</a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="card-tile">
+          <div style="padding: 24px;">
+            <span class="card-badge" style="margin-bottom: 12px; display: inline-block;">SMEs Spend</span>
+            <h4 style="margin-bottom: 10px; font-size: 1.25rem;">Maximizing Advertising Cashback (Meta & Google Ads)</h4>
+            <p class="text-small" style="margin-bottom: 20px;">Learn how marketing agencies and high-spending e-commerce giants earn flat cashback on digital ad accounts using Alaan or Pluto...</p>
+            <a href="#article" class="font-highlight text-indigo">Read Full Article →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accordion FAQ Panel Section -->
+  <section class="section section-grey">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Expert answers regarding corporate spend programs in Dubai, Abu Dhabi, and the wider UAE.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>Are these corporate cards real credit cards or charge cards?</h4>
+          <p class="text-small">Most modern corporate card platforms in the UAE (like Alaan, Qashio, Pemo, and Pluto) function primarily as corporate spend cards. They can be backed by prepaid wallets or tied to corporate accounts, allowing zero interest liability. Platforms like Brex and Ramp can also function as corporate charge cards where total spending is cleared at the end of each billing cycle.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What are the eligibility requirements for a corporate card in the UAE?</h4>
+          <p class="text-small">Usually, providers require an active UAE trade license, a corporate bank account with at least 3 months of bank statements, and identification papers for the authorized manager. Startups backed by venture capital might bypass typical bank statement checks with Brex/Ramp's global venture evaluations.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do virtual cards manage SaaS subscriptions and advertising?</h4>
+          <p class="text-small">A virtual card acts exactly like a physical visa/mastercard, but is created instantly on your dashboard. You can issue a dedicated card for Google Ads with a maximum monthly limit of AED 15,000. If that vendor is breached or overcharges, Pluto or Alaan will immediately block further transactions without affecting other active cards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Independence & Transparency Section -->
+  <section class="section">
+    <div class="container">
+      <div class="trust-shield-card">
+        <div class="trust-shield-header">
+          <h3>Independent. Data-Driven. Objective.</h3>
+          <p class="text-muted" style="color: #94a3b8 !important;">Kredit UAE is a neutral, commission-transparent discovery tool built around independent research.</p>
+        </div>
+        
+        <div class="trust-bullets-grid">
+          <div class="trust-bullet-item">
+            <span class="trust-bullet-icon">✓</span>
+            <div>
+              <h5 style="color: #ffffff; margin-bottom: 4px;">Transparent Formula</h5>
+              <p class="text-xs" style="color: #94a3b8;">Our scoring weights Spend Management (20%), Cashback (15%), Fees (10%), and UX (5%) dynamically.</p>
+            </div>
+          </div>
+          <div class="trust-bullet-item">
+            <span class="trust-bullet-icon">✓</span>
+            <div>
+              <h5 style="color: #ffffff; margin-bottom: 4px;">Zero Partner Influence</h5>
+              <p class="text-xs" style="color: #94a3b8;">Paid and referral links are explicitly highlighted. They never modify card rankings or scores.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Sticky Comparison Widget/Tray (Slides from bottom) -->
+  <div class="compare-sticky-tray" id="comparison-sticky-tray">
+    <div class="container">
+      <div class="tray-selected-list" id="comparison-selected-list">
+        <!-- JavaScript Populated selections -->
+      </div>
+
+      <div class="tray-actions">
+        <button class="btn btn-secondary btn-sm" onclick="clearComparisonTray()">Clear All</button>
+        <button class="btn btn-primary btn-sm" onclick="launchComparisonMatrix()">Compare Selected <span id="compare-submit-count">(0)</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 1: Side-By-Side Comparison Grid Backdrop -->
+  <div class="modal-backdrop" id="comparison-modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Side-by-Side Card Comparison</h3>
+        <button class="modal-close-btn" onclick="closeComparisonMatrix()">✕</button>
+      </div>
+      <div class="modal-scroll-body" id="comparison-matrix-modal-content">
+        <!-- Rendered comparison table dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Individual Card Specification Detail Backdrop -->
+  <div class="modal-backdrop" id="details-modal-backdrop">
+    <div class="modal-container" style="max-width: 960px;">
+      <div class="modal-header">
+        <h3>Full Technical Specifications</h3>
+        <button class="modal-close-btn" onclick="closeDetailsModal()">✕</button>
+      </div>
+      <div class="modal-scroll-body" id="details-modal-content">
+        <!-- Rendered details view dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer / Newsletter -->
+  <footer class="footer-newsletter-wrap">
+    <div class="container">
+      
+      <!-- Newsletter Row -->
+      <div class="newsletter-box">
+        <div>
+          <h3>Stay Smart with Corporate Spend</h3>
+          <p class="text-xs" style="color: #94a3b8;">Join 5,000+ UAE CFOs and SME operators receiving monthly guides on spend reduction, VAT hacks, and cashback multipliers.</p>
+        </div>
+        <div class="newsletter-form-container">
+          <input type="email" class="newsletter-input" placeholder="Enter corporate email...">
+          <button class="btn btn-primary btn-sm" onclick="alert('Subscribed successfully!')">Join Newsletter</button>
+        </div>
+      </div>
+
+      <!-- Links Column grid -->
+      <div class="footer-columns">
+        <div class="footer-col" style="grid-column: span 2;">
+          <div class="brand-logo-container" style="margin-bottom: 15px;">
+            <div class="brand-logo-icon">K</div>
+            <span class="brand-logo-text" style="color: #ffffff;">Kredit<span>Card</span></span>
+          </div>
+          <p class="text-xs" style="color: #94a3b8; margin-bottom: 20px;">Compare, discover, and optimize corporate business expense operations in UAE and Saudi Arabia. Independent financial matching.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Providers</h5>
+          <ul>
+            <li><a href="#" onclick="triggerQuickSearch('Qashio')">Qashio UAE</a></li>
+            <li><a href="#" onclick="triggerQuickSearch('Alaan')">Alaan Spend</a></li>
+            <li><a href="#" onclick="triggerQuickSearch('Pemo')">Pemo Card</a></li>
+            <li><a href="#" onclick="triggerQuickSearch('Pluto')">Pluto Card</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Compare Cards</h5>
+          <ul>
+            <li><a href="#" onclick="launchDirectCompare('qashio', 'alaan')">Qashio vs Alaan</a></li>
+            <li><a href="#" onclick="launchDirectCompare('alaan', 'pemo')">Alaan vs Pemo</a></li>
+            <li><a href="#" onclick="launchDirectCompare('ramp', 'brex')">Ramp vs Brex</a></li>
+            <li><a href="#" onclick="triggerQuickSearch('Cashback')">Cashback Cards</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#guides-section">Fintech Guides</a></li>
+            <li><a href="#picker-section">Card Recommendation Finder</a></li>
+            <li><a href="#calculators-section">Rewards Estimator</a></li>
+            <li><a href="#calculators-section">Cost Calculator</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Disclosures & Bottom copyrights -->
+      <div class="footer-bottom">
+        <p>© 2026 KreditCard UAE (Independent Comparison Engine). All rights reserved.</p>
+        <p class="text-xs" style="max-width: 600px; text-align: right;">Disclaimer: Kredit UAE is an independent publisher and comparison platform. Ratings, review scores, fees, and feature availability are subject to change. Consult direct providers for official trade terms.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Core Javascript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
